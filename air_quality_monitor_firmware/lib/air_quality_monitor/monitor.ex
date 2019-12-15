@@ -22,7 +22,7 @@ defmodule AirQualityMonitor.Monitor do
     {:ok, message} = Circuits.UART.read(uart_pid, 5000)
 
     case parse_message(message) do
-      {:ok, metrics} -> Logger.info(inspect(metrics))
+      {:ok, metrics} -> send_update(metrics)
       {:error, error} -> Logger.info(error)
     end
 
@@ -43,5 +43,10 @@ defmodule AirQualityMonitor.Monitor do
     else
       _ -> {:error, :invalid_message}
     end
+  end
+
+  defp send_update(metrics) do
+    Logger.info(inspect(metrics))
+    AirQualityMonitorUiWeb.Endpoint.broadcast!("metrics:lobby", "metrics_update", metrics)
   end
 end
