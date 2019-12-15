@@ -9,11 +9,10 @@ defmodule AirQualityMonitor.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: AirQualityMonitor.Supervisor]
+
     children =
       [
-        # Children for all targets
-        # Starts a worker by calling: AirQualityMonitor.Worker.start_link(arg)
-        # {AirQualityMonitor.Worker, arg},
+        AirQualityMonitor.Monitor
       ] ++ children(target())
 
     Supervisor.start_link(children, opts)
