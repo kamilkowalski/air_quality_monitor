@@ -2,7 +2,7 @@ defmodule AirQualityMonitorUiWeb.UserSocket do
   use Phoenix.Socket
 
   ## Channels
-  # channel "room:*", AirQualityMonitorUiWeb.RoomChannel
+  channel "metrics:lobby", AirQualityMonitorUiWeb.MetricsChannel
 
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
