@@ -26,6 +26,18 @@ config :shoehorn,
 
 config :logger, backends: [RingLogger]
 
+config :air_quality_monitor_ui, AirQualityMonitorUiWeb.Endpoint,
+  url: [host: "nerves.local"],
+  http: [port: 80],
+  secret_key_base: "TsO65DuB33HR2AXw14bMJiBPKJiHuiOTN9xPR+k6u1CAsGqxmI/7dn0cY0l+ojQw",
+  root: Path.dirname(__DIR__),
+  server: true,
+  code_reloader: false,
+  render_errors: [view: AirQualityMonitorUiWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: AirQualityMonitorUi.PubSub, adapter: Phoenix.PubSub.PG2]
+
+config :phoenix, :json_library, Jason
+
 if Mix.target() != :host do
   import_config "target.exs"
 end
