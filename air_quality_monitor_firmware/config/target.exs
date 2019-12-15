@@ -23,6 +23,17 @@ if keys == [],
 config :nerves_firmware_ssh,
   authorized_keys: Enum.map(keys, &File.read!/1)
 
+config :nerves_network, :default,
+  wlan0: [
+    networks: [
+      [
+        ssid: System.get_env("NERVES_NETWORK_SSID"),
+        psk: System.get_env("NERVES_NETWORK_PSK"),
+        key_mgmt: :"WPA-PSK"
+      ]
+    ]
+  ]
+
 # Configure nerves_init_gadget.
 # See https://hexdocs.pm/nerves_init_gadget/readme.html for more information.
 
@@ -31,8 +42,8 @@ config :nerves_firmware_ssh,
 node_name = if Mix.env() != :prod, do: "air_quality_monitor"
 
 config :nerves_init_gadget,
-  ifname: "usb0",
-  address_method: :dhcpd,
+  ifname: "wlan0",
+  address_method: :dhcp,
   mdns_domain: "nerves.local",
   node_name: node_name,
   node_host: :mdns_domain
