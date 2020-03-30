@@ -44,6 +44,7 @@ defmodule AirQualityMonitor.MixProject do
       {:ring_logger, "~> 0.6"},
       {:toolshed, "~> 0.2"},
       {:circuits_uart, "~> 1.4"},
+      {:circuits_uart_framing_pms7003, "~> 0.1.0"},
       {:air_quality_monitor_ui, path: "../air_quality_monitor_ui"},
 
       # Dependencies for all targets except :host

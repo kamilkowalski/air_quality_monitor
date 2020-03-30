@@ -1,5 +1,6 @@
 %{
   "circuits_uart": {:hex, :circuits_uart, "1.4.0", "799abad2d5f355bd571c46de089e62c6341e6b08f9fdf51f4d53d50f5d5bbda9", [:mix], [{:elixir_make, "~> 0.6", [hex: :elixir_make, repo: "hexpm", optional: false]}], "hexpm"},
+  "circuits_uart_framing_pms7003": {:hex, :circuits_uart_framing_pms7003, "0.1.0", "0cb397f4c3b8b1f971a44bcdb5afcd33e04ac92c2c7b58fe651361022a4e916f", [:mix], [{:circuits_uart, "~> 1.4", [hex: :circuits_uart, repo: "hexpm", optional: false]}], "hexpm"},
   "cowboy": {:hex, :cowboy, "2.7.0", "91ed100138a764355f43316b1d23d7ff6bdb0de4ea618cb5d8677c93a7a2f115", [:rebar3], [{:cowlib, "~> 2.8.0", [hex: :cowlib, repo: "hexpm", optional: false]}, {:ranch, "~> 1.7.1", [hex: :ranch, repo: "hexpm", optional: false]}], "hexpm"},
   "cowlib": {:hex, :cowlib, "2.8.0", "fd0ff1787db84ac415b8211573e9a30a3ebe71b5cbff7f720089972b2319c8a4", [:rebar3], [], "hexpm"},
   "dns": {:hex, :dns, "2.1.2", "81c46d39f7934f0e73368355126e4266762cf227ba61d5889635d83b2d64a493", [:mix], [{:socket, "~> 0.3.13", [hex: :socket, repo: "hexpm", optional: false]}], "hexpm"},
